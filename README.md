@@ -10,15 +10,23 @@ MACA-2D is a multi-agent air combat secnario, based on [MACA](https://github.com
 
 ```shell
 conda create -n maca
-conda install requests[socks]
+conda install requests[socks] tensorboard
 pip install -r requirements.txt
+```
+如果提示`GLIBCXX_3.4.30’ not found 的情况，则
+```sh
+cd /home/$USER/miniconda3/maca/lib
+mkdir backup  # Create a new folder to keep the original libstdc++
+mv libstd* backup  # Put all libstdc++ files into the folder, including soft links
+cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6  ./ # Copy the c++ dynamic link library of the system here
+ln -s libstdc++.so.6 libstdc++.so
+ln -s libstdc++.so.6 libstdc++.so.6.0.29
 ```
 
 #### Train & Test
 
 ```shell
 # demo
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 python3 demo.py
 
 # train with rllib

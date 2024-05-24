@@ -63,7 +63,7 @@ class CannonReconnHieraricalWrapper():
         """
 
         # self id
-        id_ = np.zeros((self.n_agent, ), dtype=np.float)
+        id_ = np.zeros((self.n_agent, ), dtype=np.float64)
         id_[fighter.id-1] = 1.0
 
         # self pos
@@ -72,19 +72,19 @@ class CannonReconnHieraricalWrapper():
         pos = pos.reshape(2, )
 
         # self ori
-        ori = np.array([fighter.ori], dtype=np.float) / (np.pi * 2)
+        ori = np.array([fighter.ori], dtype=np.float64) / (np.pi * 2)
         ori = ori.reshape(1, )
 
         # self bloods
-        bloods = np.array([fighter.bloods], dtype=np.float) / self.args.fighter.bloods
+        bloods = np.array([fighter.bloods], dtype=np.float64) / self.args.fighter.bloods
         bloods = bloods.reshape(1, )
 
         # damage_range
-        damage_range = np.array([fighter.damage_range], dtype=np.float) / self.args.simulator.distance_normal_val
+        damage_range = np.array([fighter.damage_range], dtype=np.float64) / self.args.simulator.distance_normal_val
         damage_range = damage_range.reshape(1, )
 
         # damage_turn_range
-        damage_turn_range = np.array([fighter.damage_turn_range], dtype=np.float) / np.pi
+        damage_turn_range = np.array([fighter.damage_turn_range], dtype=np.float64) / np.pi
         damage_turn_range = damage_turn_range.reshape(1, )
 
         # detect ally info
@@ -121,7 +121,8 @@ class CannonReconnHieraricalWrapper():
                     ])
                 else:
                     ally_infos.extend([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-        ally_infos = np.array(ally_infos, dtype=np.float)
+        # print(ally_infos)
+        ally_infos = np.array(ally_infos, dtype=object)
 
         # detect enemy info
         enemy_infos = []
@@ -156,7 +157,8 @@ class CannonReconnHieraricalWrapper():
                 ])
             else:
                 enemy_infos.extend([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-        enemy_infos = np.array(enemy_infos, dtype=np.float)
+        # print(enemy_infos)
+        enemy_infos = np.array(enemy_infos, dtype=object)
 
         fighter_obs = np.concatenate(
             [
