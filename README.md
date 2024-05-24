@@ -9,6 +9,8 @@ MACA-2D is a multi-agent air combat secnario, based on [MACA](https://github.com
 #### Install
 
 ```shell
+conda create -n maca
+conda install requests[socks]
 pip install -r requirements.txt
 ```
 
@@ -16,6 +18,7 @@ pip install -r requirements.txt
 
 ```shell
 # demo
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 python3 demo.py
 
 # train with rllib
