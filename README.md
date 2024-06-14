@@ -35,3 +35,8 @@ python3 train_cr_rllib.py
 python3 test_cr_rllib.py
 ```
 
+尝试在洪都杯的环境上直接运行训练
+```sh
+D:\projects\hdbisai\python.exe demo.py
+```
+

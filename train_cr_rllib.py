@@ -46,12 +46,12 @@ def main():
         "entropy_coeff": 0.0,
         "lr": 1e-5, #1e-5
         "num_workers": 2,
-        "num_gpus": 1.0,
+        "num_gpus": 0, # 1.0
         "callbacks": CRCallback,
     }
 
     # run rllib
-    ray.init()
+    ray.init(num_cpus=2,local_mode=True)
     tune.run(
         "PPO",
         config=config,

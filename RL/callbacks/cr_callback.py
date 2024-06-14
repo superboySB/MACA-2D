@@ -1,6 +1,6 @@
 
 
-from ray.rllib.agents.callbacks import DefaultCallbacks 
+from ray.rllib.algorithms.callbacks import DefaultCallbacks 
 
 # For Tensorboard可视化
 class CRCallback(DefaultCallbacks):
