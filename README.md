@@ -35,8 +35,10 @@ python3 train_cr_rllib.py
 python3 test_cr_rllib.py
 ```
 
-尝试在洪都杯的环境上直接运行训练
+## 洪都杯python运行环境下验证rllib性能
+使用一台linux服务器，尝试在洪都杯的rllib版本上直接运行训练
 ```sh
-D:\projects\hdbisai\python.exe demo.py
+conda activate maca
+python3 train_cr_rllib.py
 ```
 
