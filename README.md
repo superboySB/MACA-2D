@@ -36,7 +36,7 @@ python3 test_cr_rllib.py
 ```
 
 ## 洪都杯python运行环境下验证rllib性能
-使用一台linux服务器，尝试在洪都杯的rllib版本上直接运行训练
+使用一台linux服务器，尝试在洪都杯的python3.7+rllib版本上充分训练
 ```sh
 conda activate maca
 python3 train_cr_rllib.py
