@@ -1,6 +1,7 @@
 
-import gym
-from gym.spaces import Dict, Discrete, Box, Tuple
+# import gym
+# from gym.spaces import Dict, Discrete, Box, Tuple
+from gymnasium.spaces import Dict, Discrete, Box, Tuple
 import numpy as np
 
 from ray.rllib.env.multi_agent_env import MultiAgentEnv
@@ -25,6 +26,8 @@ class CannonReconnHieraricalEnv(MultiAgentEnv):
         is_render = args.render
         self.random_side = args.env.random_side
 
+        self.num_agents = args.env.n_ally_reconn + args.env.n_ally_cannon
+        
         # total game status
         self.game_status = None
 

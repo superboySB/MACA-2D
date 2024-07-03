@@ -3,6 +3,16 @@ import numpy as np
 
 from MACA.fighter.fighter_type import FIGHTER_TYPE
 
+# 定义一个函数来展开嵌套的array
+def flatten_nested_array(arr):
+    flat_list = []
+    for item in arr:
+        if isinstance(item, np.ndarray):
+            flat_list.extend(flatten_nested_array(item))
+        else:
+            flat_list.append(item)
+    return flat_list
+
 class CannonReconnHieraricalWrapper():
     def __init__(self, args, env):
         self.args = args
@@ -172,9 +182,17 @@ class CannonReconnHieraricalWrapper():
             ],
             axis=0)
         
+        fighter_obs_list = flatten_nested_array(fighter_obs)
+        fighter_obs_array = np.array(fighter_obs_list)
         if fighter.alive:
-            return fighter_obs
-        return np.zeros_like(fighter_obs)
+            return fighter_obs_array
+        
+        return np.zeros_like(fighter_obs_array)
+
+        # if fighter.alive:
+        #     return fighter_obs
+        
+        # return np.zeros_like(fighter_obs)
 
     def _cannon_reward_wrapper(self, fighter, game_status):
         attack_reward = game_status['ally_info'][fighter.id]['damage_val'] * self.args.rl.reward.cannon_attack

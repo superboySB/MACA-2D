@@ -9,8 +9,8 @@ MACA-2D is a multi-agent air combat secnario, based on [MACA](https://github.com
 #### Install
 
 ```shell
-conda create -n maca python=3.7
-conda install requests[socks] tensorboard
+conda create -n maca python=3.8
+conda install tensorboard # requests[socks] 
 pip install -r requirements.txt
 ```
 如果提示`GLIBCXX_3.4.30’ not found 的情况，则
@@ -35,10 +35,12 @@ python3 train_cr_rllib.py
 python3 test_cr_rllib.py
 ```
 
-## 洪都杯python运行环境下验证rllib性能
+## 洪都杯python运行环境下验证rllib性能（to新唯）
 使用一台linux服务器，尝试在洪都杯的python3.7+rllib版本上充分训练
 ```sh
+conda create -n maca python=3.7
 conda activate maca
+pip install -r requirements.txt
 python3 train_cr_rllib.py
 ```
 
