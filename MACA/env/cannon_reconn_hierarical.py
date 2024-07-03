@@ -49,11 +49,11 @@ class CannonReconnHieraricalEnv(MultiAgentEnv):
             self.render_sim = PygameRender(args, self.allies, self.enemies)
 
         # RL wrapper
-        self.observation_spaces = [
+        self.observation_space = [
             Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,), dtype=np.float64),
             Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,), dtype=np.float64)
         ]
-        self.action_spaces = [
+        self.action_space = [
             Box(low=-self.args.fighter.turn_range, 
                 high=self.args.fighter.turn_range, 
                 shape=(1,)),
